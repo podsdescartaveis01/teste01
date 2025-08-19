@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VapeShop Design System - Modern e-commerce for vaping products */
+
+@layer base {
+  :root {
+    /* Modern purple-blue gradient theme */
+    --background: 240 6% 98%;
+    --foreground: 240 5% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 5% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 5% 12%;
+
+    /* Deep purple-blue primary */
+    --primary: 260 45% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 260 55% 45%;
+
+    /* Soft neutral secondary */
+    --secondary: 240 4% 96%;
+    --secondary-foreground: 240 5% 25%;
+
+    --muted: 240 4% 96%;
+    --muted-foreground: 240 4% 45%;
+
+    /* Green accent for positive actions */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 142 86% 50%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 92%;
+    --input: 240 6% 92%;
+    --ring: 260 45% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--accent)) 100%);
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 8% 8%;
+    --foreground: 240 6% 95%;
+
+    --card: 240 6% 12%;
+    --card-foreground: 240 6% 95%;
+
+    --popover: 240 6% 12%;
+    --popover-foreground: 240 6% 95%;
+
+    --primary: 260 55% 55%;
+    --primary-foreground: 240 8% 8%;
+    --primary-glow: 260 65% 65%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 240 6% 95%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 4% 65%;
+
+    --accent: 142 86% 40%;
+    --accent-foreground: 240 8% 8%;
+    --accent-glow: 142 96% 50%;
+
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 240 8% 8%;
+
+    --border: 240 4% 20%;
+    --input: 240 4% 20%;
+    --ring: 260 55% 55%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--accent)) 100%);
+
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
