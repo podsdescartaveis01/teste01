@@ -38,8 +38,11 @@ export function Cart({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-background shadow-2xl">
+    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" onClick={onClose}>
+      <div 
+        className="fixed right-0 top-0 h-full w-full max-w-md bg-background shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         <Card className="h-full rounded-none border-0">
           <CardHeader className="border-b">
             <div className="flex items-center justify-between">
@@ -63,7 +66,7 @@ export function Cart({
             </div>
           </CardHeader>
 
-          <CardContent className="flex h-full flex-col p-0">
+          <CardContent className="flex flex-col h-[calc(100vh-80px)] p-0">
             {items.length === 0 ? (
               <div className="flex flex-1 flex-col items-center justify-center p-6 text-center">
                 <ShoppingCart className="h-12 w-12 text-muted-foreground mb-4" />
@@ -132,8 +135,8 @@ export function Cart({
                   ))}
                 </div>
 
-                {/* Footer */}
-                <div className="border-t p-4 space-y-4">
+                {/* Footer - sempre fixo na parte inferior */}
+                <div className="border-t bg-background p-4 space-y-4 mt-auto">
                   {/* Minimum Order Alert */}
                   {!canCheckout && (
                     <div className="p-3 rounded-lg bg-yellow-50 border border-yellow-200 dark:bg-yellow-900/20 dark:border-yellow-800">
